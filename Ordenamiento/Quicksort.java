@@ -1,6 +1,23 @@
 package Ordenamiento;
 
+import java.util.Random;
+
 public class Quicksort {
+
+    public static void cargarArray(int[] array, int size){
+        Random random = new Random();
+
+        for(int i = 0; i < size; i++){
+            array[i] = random.nextInt(1000);
+        }
+    }
+
+    public static void mostrarArray(int[] array){
+        for(int num : array){
+            System.out.print(num + " ");
+        }
+    }
+
     public static void quicksort(int[] item, int left, int right) {
         int i, j, temp;
         i = left;
@@ -26,18 +43,26 @@ public class Quicksort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {12, 11, 13, 5, 6};
+        int size = 1000; //tamanio del arreglo
+        int[] array = new int[size];
 
-        System.out.println("Array antes de ordenar:");
-        for (int num : arr) {
-            System.out.print(num + " ");
-        }
+        cargarArray(array, size);
 
-        quicksort(arr, 0, arr.length - 1);
+        System.out.println("Array antes de ordenar");
+        mostrarArray(array);
+        
+        long startTime = System.nanoTime();//mide el tiempo antes de iniciar la busqueda
+        
+        quicksort(array, 0, size-1);//ordenamiento por insercion
 
-        System.out.println("\nArray después de ordenar:");
-        for (int num : arr) {
-            System.out.print(num + " ");
-        }
+        long endTime = System.nanoTime();//mide el tiempo despues de finalizar la busqueda
+        
+        System.out.println("\nArray despues de ordenar");
+        mostrarArray(array);
+
+        //calcular el tiempo
+        long elapsedTimeMilis = (endTime - startTime) / 1000000;
+        System.out.println("\nTiempo transcurrido: "+elapsedTimeMilis+"ms");
+   
     }
 }
