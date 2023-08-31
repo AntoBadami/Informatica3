@@ -1,4 +1,4 @@
-package Ordenamiento;
+package Ordenamiento.OrdenamientoTipos;
 
 import java.util.Random;
 
@@ -53,7 +53,7 @@ public class Quicksort {
         
         long startTime = System.nanoTime();//mide el tiempo antes de iniciar la busqueda
         
-        quicksort(array, 0, size-1);//ordenamiento por insercion
+        quicksort(array, 0, size-1);//ordenamiento quicksort
 
         long endTime = System.nanoTime();//mide el tiempo despues de finalizar la busqueda
         

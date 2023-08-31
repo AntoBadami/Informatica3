@@ -1,4 +1,4 @@
-package Ordenamiento;
+package Ordenamiento.OrdenamientoTipos;
 import java.util.Random;
 
 public class Insercion{
@@ -12,8 +12,8 @@ public class Insercion{
     }
 
     public static void mostrarArray(int[] array){
-        for(int num : array){
-            System.out.print(num + " ");
+        for(int i = 0; i < array.length; i++){
+            System.out.print(array[i] + " ");
         }
     }
 
@@ -42,12 +42,10 @@ public class Insercion{
         
         insercion(array);//ordenamiento por insercion
 
-        //long endTime = System.nanoTime();//mide el tiempo despues de finalizar la busqueda
+        long endTime = System.nanoTime();//mide el tiempo despues de finalizar la busqueda
         
         System.out.println("\nArray despues de ordenar");
         mostrarArray(array);
-        long endTime = System.nanoTime();//mide el tiempo despues de finalizar la busqueda
-        
 
         //calcular el tiempo
         long elapsedTimeMilis = (endTime - startTime) / 1000000;

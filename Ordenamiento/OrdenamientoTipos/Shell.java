@@ -1,5 +1,4 @@
-package Ordenamiento;
-
+package Ordenamiento.OrdenamientoTipos;
 import java.util.Random;
 
 public class Shell {
