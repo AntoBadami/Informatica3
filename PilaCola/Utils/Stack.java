@@ -50,7 +50,10 @@ public class Stack<AnyType> {
    * 
    * @return
    */
-  public AnyType top() {
+  public AnyType top() throws Exception{
+    if (isEmpty()) {
+      throw new Exception("La pila está vacia");
+    }
     return this.array[this.index - 1];
   }
 

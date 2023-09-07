@@ -1,10 +1,12 @@
 package PilaCola;
 import java.util.Scanner;
+
+import PilaCola.Tests.Palindromos;
 import PilaCola.Tests.StackTest;
 
 class Main {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
     int op=0;
     boolean salida = false;
@@ -15,19 +17,26 @@ class Main {
         op = Integer.parseInt(scanner.nextLine());
 
         switch(op){
-            case 1://implementacion de pila
+            case 1:
+                //Ejercicio1: implementacion de pila
                 StackTest stackTest = new StackTest();
                 stackTest.testStackInteger();
                 stackTest.testStackString();
                 break;
             case 2:
-            break;
+                //Ejercicio2: comprobacion de palindromos
+                Palindromos palindromo = new Palindromos();
+                palindromo.ej2();
+                break;
             case 3:
-            break;
+                //Ejercicio3: 
+                break;
             case 4:
-            break;
+                //Ejercicio4
+                break;
             case 5:
-            break;
+                //Ejercicio5
+                break;
             case 6:
                 salida = true;
                 break;
@@ -36,7 +45,7 @@ class Main {
         }
 
     }while(salida == false);
-    
+
     scanner.close();
   }
 

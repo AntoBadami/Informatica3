@@ -36,7 +36,7 @@ public class StackTest {
       System.out.println(stackString.pop());
       System.out.println(stackString.pop());
     } catch (Exception e) {
-      // TODO: handle exception
+      System.err.println(e.getMessage());
     }
   }
 
