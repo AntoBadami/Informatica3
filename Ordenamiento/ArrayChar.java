@@ -71,7 +71,7 @@ public class ArrayChar {
     }
 
     public static void main(String[] args) {
-        int size = 1000, op=0; //tamanio del arreglo
+        int size = 100, op=0; //tamanio del arreglo
         char[] array = new char[size];
         Scanner scanner = new Scanner(System.in);
 
