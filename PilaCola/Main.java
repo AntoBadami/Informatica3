@@ -29,13 +29,13 @@ class Main {
                 palindromo.ej2();
                 break;
             case 3:
-                //Ejercicio3: 
+                //Ejercicio3: TODO
                 break;
             case 4:
-                //Ejercicio4
+                //Ejercicio4 TODO
                 break;
             case 5:
-                //Ejercicio5
+                //Ejercicio5 TODO
                 break;
             case 6:
                 salida = true;
