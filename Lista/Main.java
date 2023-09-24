@@ -2,6 +2,7 @@ package Lista;
 
 import java.util.Scanner;
 
+import Lista.Ejercicios.Binario;
 import Lista.Ejercicios.Parentesis;
 import Lista.Ejercicios.StackListString;
 import Lista.Ejercicios.StackListTest;
@@ -37,6 +38,8 @@ class Main {
                 break;
             case 4:
                 //Ejercicio4 TODO
+                Binario binario = new Binario();
+                binario.PasarBinario();
                 break;
             case 5:
                 //Ejercicio5 TODO

@@ -26,11 +26,8 @@ public class Parentesis {
             if(x == ')') j++;
         }
 
-        if (i == j){
-            System.out.println("parentesis equilibrados");
-        }else{
-            System.out.println("parentesis desequilibrados");
-        }
+        if (i == j) System.out.println("parentesis valanceados");
+        if (i != j) System.out.println("parentesis desvalanceados");
 
         scanner.close();
     }
