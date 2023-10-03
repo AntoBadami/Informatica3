@@ -23,12 +23,26 @@ public class Practica {
         }
     }
 
+    public static void recursiva (int n){
+
+        if(n==1){
+            System.out.println(n);
+        }
+        else{ 
+            if(n%2!=0){
+                System.out.println(n);
+            }
+            recursiva(n-1);
+        }
+    }
     public static void main(String[] args) {
         char array[] = {'h','o','l','a'};
         int i = array.length;
         int v[] = {1,3,1};
         int n = v.length-1;
 
+        int c=9;
+        recursiva(c);
         System.out.println("suma: "+suma(v, n));
         System.out.println("cantidad vocales");
         System.out.println(cantVocales(array, i));
