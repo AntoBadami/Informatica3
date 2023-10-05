@@ -36,32 +36,17 @@ public class Arbol<AnyType> {
         return root == null;
     }
 
-    //TODO implementar
-    
-    public void merge(AnyType rootItem, Nodo<AnyType> t1, Nodo<AnyType> t2){
-        if (t1 == t2 && t1 != null) {
+    public void merge(AnyType rootItem, Arbol<AnyType> t1, Arbol<AnyType> t2){
+        if (t1.root == t2.root && t1.root != null) {
             throw new IllegalArgumentException();
         }
-        root = new Nodo<AnyType> (rootItem, t1, t2);
+        root = new Nodo<AnyType> (rootItem, t1.root, t2.root);
 
-        if(this.root != t1)
-            t1 = null;
-        if(this.root != t2)
-            t2 = null;
+        if(this != t1)
+            t1.root = null;
+        if(this != t2)
+            t2.root = null;
         
-    }/* 
-    public Nodo<AnyType> merge(AnyType rootItem, Nodo<AnyType> t1, Nodo<AnyType> t2) {
-        if (t1 == t2 && t1 != null) {
-            throw new IllegalArgumentException();
-        }
-        root = new Nodo<AnyType>(rootItem, t1, t2);
-    
-        // Establecer las referencias originales en null
-        t1 = null;
-        t2 = null;
-    
-        return root;
-    }*/
-    
+    }
     
 }
