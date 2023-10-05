@@ -21,10 +21,10 @@ public class Main {
                 e1.eje1();
                 break;
             case 2:
-                //Ejercicio2: lista de string
+                //Ejercicio2: 
                 break;
             case 3:
-                //Ejercicio3: verificacion de parentesis
+                //Ejercicio3: 
                 break;
             case 4:
                 //Ejercicio4 TODO

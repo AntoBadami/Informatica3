@@ -9,8 +9,8 @@ public class Nodo<AnyType> {
     this(null,null,null);
   }
 
-  public Nodo(AnyType element, Nodo<AnyType> lt, Nodo<AnyType> rt){
-    this.element = element;
+  public Nodo(AnyType thelement, Nodo<AnyType> lt, Nodo<AnyType> rt){
+    this.element = thelement;
     this.left = lt;
     this.right = rt;
   }
