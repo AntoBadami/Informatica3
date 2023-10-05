@@ -37,19 +37,19 @@ public class Arbol<AnyType> {
     }
 
     //TODO implementar
-    /* 
+    
     public void merge(AnyType rootItem, Nodo<AnyType> t1, Nodo<AnyType> t2){
         if (t1 == t2 && t1 != null) {
             throw new IllegalArgumentException();
         }
         root = new Nodo<AnyType> (rootItem, t1, t2);
 
-        if(this != t1)
+        if(this.root != t1)
             t1 = null;
-        if(this != t2)
+        if(this.root != t2)
             t2 = null;
         
-    }*/
+    }/* 
     public Nodo<AnyType> merge(AnyType rootItem, Nodo<AnyType> t1, Nodo<AnyType> t2) {
         if (t1 == t2 && t1 != null) {
             throw new IllegalArgumentException();
@@ -61,7 +61,7 @@ public class Arbol<AnyType> {
         t2 = null;
     
         return root;
-    }
+    }*/
     
-
+    
 }
