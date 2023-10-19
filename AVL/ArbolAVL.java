@@ -1,9 +1,9 @@
-package ArbolDeBusqueda.Utils;
+package AVL;
 
-public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
-    protected BinaryNode<AnyType> root;
+public class ArbolAVL <AnyType extends Comparable<? super AnyType>> {
+    protected NodoAVL<AnyType> root;
 
-    public BinarySearchTree(){
+    public ArbolAVL(){
         root = null;
     }
     public void insert (AnyType x) throws Exception{
@@ -31,10 +31,10 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
         return root == null;
     }
 
-    private AnyType elementAt(BinaryNode<AnyType> t){
+    private AnyType elementAt(NodoAVL<AnyType> t){
          return (t == null) ? null : t.element;
     }
-    private BinaryNode<AnyType> find(AnyType x, BinaryNode<AnyType> t){
+    private NodoAVL<AnyType> find(AnyType x, NodoAVL<AnyType> t){
         while(t != null){
             if(x.compareTo(t.element) < 0){
                 t = t.left;
@@ -46,7 +46,7 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
         }
         return null;
     }
-    private BinaryNode<AnyType> findMin(BinaryNode<AnyType> t){
+    private NodoAVL<AnyType> findMin(NodoAVL<AnyType> t){
         if(t != null){
             while(t.left != null){
                 t = t.left;
@@ -54,7 +54,7 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
         }
         return t;
     }
-    private BinaryNode<AnyType> findMax(BinaryNode<AnyType> t){
+    private NodoAVL<AnyType> findMax(NodoAVL<AnyType> t){
         if(t != null){
             while(t.right != null){
                 t = t.right;
@@ -62,21 +62,22 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
         }
         return t;
     }
-    protected BinaryNode<AnyType> insert (AnyType x, BinaryNode<AnyType> t) throws Exception{
+    protected NodoAVL<AnyType> insert (AnyType x, NodoAVL<AnyType> t) throws Exception{
         if(t == null){
-            t = new BinaryNode<AnyType>(x);
+            t = new NodoAVL<AnyType>(x);
         }else if(x.compareTo(t.element) < 0){
             t.left = insert(x, t.left);
         }else if(x.compareTo(t.element) > 0){
             t.right = insert(x, t.right);
         }else{
-            throw new Exception(x.toString());
+            throw new Exception(x.toString()); //DuplicateItemException(x.toString());
         }
+        
         return t;
     }
-    protected BinaryNode<AnyType> removeMin(BinaryNode<AnyType> t) throws Exception{
+    protected NodoAVL<AnyType> removeMin(NodoAVL<AnyType> t) throws Exception{
         if(t == null){
-            throw new Exception();
+            throw new Exception(); // ItemNotFoundExceptios();
         }else if(t.left != null){
             t.left = removeMin(t.left);
             return t;
@@ -84,9 +85,9 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
             return t.right;
         }
     }
-    protected BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) throws Exception{
+    protected NodoAVL<AnyType> remove(AnyType x, NodoAVL<AnyType> t)throws Exception{
         if(t == null){
-            throw new Exception(x.toString());
+            throw new Exception(x.toString()); //ItemNotFoundException(x.toString());
         }
         if(x.compareTo(t.element) < 0){
             t.left = remove(x, t.left);
@@ -100,4 +101,38 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
         }
         return t;
     }
+
+
+    //metodo para obtener la altura de un nodo
+    public int altura (NodoAVL<AnyType> nodo){
+        if(nodo == null) return 0;
+        return nodo.altura;
+    }
+
+    //Metodo para actualizar la altura de un nodo
+    public void actualizarAltura(NodoAVL<AnyType> nodo){
+        nodo.altura = 1+ Math.max(altura(nodo.left), altura(nodo.right));
+    }
+
+    //rotacion simple a la izquierda
+    public NodoAVL<AnyType> rotacionSimpleIzq (NodoAVL<AnyType> k2){
+        NodoAVL <AnyType> k1 = k2.left;
+        k2.left = k1.right;
+        k1.right = k2;
+        return k1;
+    }
+
+    //rotacion simple a la derecha
+    public NodoAVL<AnyType> rotacionSimpleDer (NodoAVL<AnyType> k2){
+        NodoAVL <AnyType> k1 = k2.right;
+        k2.right = k1.left;
+        k1.left = k2;
+        return k1;
+    }
+
+    //rotacion doble a la izquierda
+
+    //rotacion doble a la derecha
+    
 }
+
