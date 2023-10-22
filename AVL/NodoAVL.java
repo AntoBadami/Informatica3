@@ -11,4 +11,15 @@ public class NodoAVL <AnyType> {
     this.altura = 1;
     left = right = null;
   }
+
+  public void printInOrder(){
+    if(left != null) left.printInOrder(); //left
+    System.out.println(element); //nodo
+    if(right != null) right.printInOrder(); //right
+  }
+  public void printPreOrder(){
+    System.out.println(element); //node
+    if(left != null) left.printPreOrder(); //left
+    if(right != null) right.printPreOrder(); //right
+  }
 }

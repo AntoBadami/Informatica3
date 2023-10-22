@@ -62,6 +62,7 @@ public class ArbolAVL <AnyType extends Comparable<? super AnyType>> {
         }
         return t;
     }
+
     protected NodoAVL<AnyType> insert (AnyType x, NodoAVL<AnyType> t) throws Exception{
         if(t == null){
             t = new NodoAVL<AnyType>(x);
@@ -73,8 +74,31 @@ public class ArbolAVL <AnyType extends Comparable<? super AnyType>> {
             throw new Exception(x.toString()); //DuplicateItemException(x.toString());
         }
         
+        actualizarAltura(t);// Actualiza la altura del nodo actual
+
+        // Verifica el equilibrio y realiza las rotaciones si es necesario
+        int balance = altura(t.left) - altura(t.right);
+        if (balance > 1) {
+            if (x.compareTo(t.left.element) < 0) {
+                // La inserción se realizó en el subárbol izquierdo del subárbol izquierdo
+                t = rotacionSimpleIzq(t);
+            } else {
+                // La inserción se realizó en el subárbol derecho del subárbol izquierdo
+                t = rotacionDobleIzq(t);
+            }
+        } else if (balance < -1) {
+            if (x.compareTo(t.right.element) > 0) {
+                // La inserción se realizó en el subárbol derecho del subárbol derecho
+                t = rotacionSimpleDer(t);
+            } else {
+                // La inserción se realizó en el subárbol izquierdo del subárbol derecho
+                t = rotacionDobleDer(t);
+            }
+        }
+
         return t;
     }
+
     protected NodoAVL<AnyType> removeMin(NodoAVL<AnyType> t) throws Exception{
         if(t == null){
             throw new Exception(); // ItemNotFoundExceptios();
@@ -103,6 +127,13 @@ public class ArbolAVL <AnyType extends Comparable<? super AnyType>> {
     }
 
 
+    public void printInOrder(){
+        if(root != null) root.printInOrder();
+    }
+    public void printPreOrder(){
+        if(root != null) root.printPreOrder();
+    }
+    
     //metodo para obtener la altura de un nodo
     public int altura (NodoAVL<AnyType> nodo){
         if(nodo == null) return 0;
@@ -131,8 +162,15 @@ public class ArbolAVL <AnyType extends Comparable<? super AnyType>> {
     }
 
     //rotacion doble a la izquierda
+    public NodoAVL<AnyType> rotacionDobleIzq(NodoAVL<AnyType> k3) {
+        k3.left = rotacionSimpleDer(k3.left); // Primero, rotación simple a la derecha en el hijo izquierdo
+        return rotacionSimpleIzq(k3); // Luego, rotación simple a la izquierda en el nodo original
+    }
 
     //rotacion doble a la derecha
-    
+    public NodoAVL<AnyType> rotacionDobleDer(NodoAVL<AnyType> k1) {
+        k1.right = rotacionSimpleIzq(k1.right); // Primero, rotación simple a la izquierda en el hijo derecho
+        return rotacionSimpleDer(k1); // Luego, rotación simple a la derecha en el nodo original
+    }
 }
 
